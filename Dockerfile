@@ -10,7 +10,6 @@ EXPOSE 5000
 
 ENV CELERY_BROKER_URL=$CELERY_BROKER_URL
 
-RUN useradd app
-USER app
+RUN echo $CELERY_BROKER_URL
 
 CMD ["celery -A prj worker --beat --loglevel=info"]
