@@ -1,6 +1,7 @@
 services:
   - type: web
     name: celery-worker
+    region: ohio
     runtime: docker
     plan: free
     buildCommand: docker build -t my-image --build-arg CELERY_BROKER_URL=${CELERY_BROKER_URL}.
