@@ -45,3 +45,4 @@ services:
     region: ohio
     plan: free
     maxmemoryPolicy: noeviction # recommended policy for queues
+    ipAllowList: [] # only allow internal connections
