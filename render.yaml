@@ -1,11 +1,10 @@
 services:
-  - type: worker
+  - type: web
     name: celery-worker
-    region: ohio
-    runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "celery --app tasks worker --loglevel info --concurrency 4"
-    autoDeploy: false
+    buildCommand: docker build -t my-image --build-arg CELERY_BROKER_URL=${CELERY_BROKER_URL}.
+    startCommand: docker run -p 8080:80 my-image
+    env: standard
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: CELERY_BROKER_URL
         fromService:
