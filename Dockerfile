@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./ ./
 EXPOSE 5000
 
-ENV CELERY_BROKER_URL=$CELERY_BROKER_URL
+ENV CELERY_BROKER_URL=redis://red-ctjhoe1opnds73fpmk4g:6379
 
 RUN echo $CELERY_BROKER_URL
 
