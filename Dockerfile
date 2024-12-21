@@ -1,4 +1,4 @@
-FROM python:3.14.0a3-alpine3.21
+FROM python:3.11.11-alpine3.21
 
 
 # Install the application dependencies
