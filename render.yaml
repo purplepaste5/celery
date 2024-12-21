@@ -2,6 +2,7 @@ services:
   - type: web
     name: celery-worker
     runtime: docker
+    plan: free
     buildCommand: docker build -t my-image --build-arg CELERY_BROKER_URL=${CELERY_BROKER_URL}.
     dockerfilePath: ./Dockerfile
     envVars:
@@ -14,6 +15,7 @@ services:
     name: app
     region: ohio
     runtime: python
+    plan: free
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
     autoDeploy: false
@@ -39,6 +41,7 @@ services:
           property: connectionString
   - type: redis
     name: celery-redis
+    plan: free
     region: ohio
     plan: starter # we choose a plan with persistence to ensure tasks are not lost upon restart
     maxmemoryPolicy: noeviction # recommended policy for queues
