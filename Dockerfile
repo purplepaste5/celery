@@ -12,4 +12,4 @@ ENV CELERY_BROKER_URL=redis://red-ctjhoe1opnds73fpmk4g:6379
 
 RUN echo $CELERY_BROKER_URL
 
-CMD ["celery -A prj worker --beat --loglevel=info"]
+CMD ["celery -A tasks worker --beat --loglevel=info"]
